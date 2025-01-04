@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Monitored Websites</h2>
+<a href="{{ url_for('add_website') }}" class="btn btn-primary mb-3">Add Website</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>URL</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Slack Users</th>
+            <th>Tag @here</th>  <!-- New Column -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for website in websites %}
+        <tr>
+            <td><a href="{{ website.url }}" target="_blank">{{ website.url }}</a></td>
+            <td>{{ website.start_time or '24hr' }}</td>
+            <td>{{ website.end_time or '24hr' }}</td>
+            <td>{{ website.slack_user_ids }}</td>
+            <td>{{ 'Yes' if website.tag_here else 'No' }}</td>  <!-- Display tag_here status -->
+            <td>
+                <a href="{{ url_for('edit_website', website_id=website.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                <form action="{{ url_for('delete_website', website_id=website.id) }}" method="post" style="display:inline-block;">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">No websites added yet.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

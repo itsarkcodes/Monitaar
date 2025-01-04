@@ -1,0 +1,8 @@
+Flask
+Flask-WTF
+Flask-SQLAlchemy
+requests
+slack-sdk
+schedule
+pytz
+python-dotenv

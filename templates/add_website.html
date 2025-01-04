@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Website</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.url.label(class="form-control-label") }}
+        {{ form.url(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.start_time.label(class="form-control-label") }}
+        {{ form.start_time(class="form-control") }}
+        <small class="form-text text-muted">Leave empty or enter '24hr' for continuous monitoring.</small>
+    </div>
+    <div class="form-group">
+        {{ form.end_time.label(class="form-control-label") }}
+        {{ form.end_time(class="form-control") }}
+        <small class="form-text text-muted">Leave empty or enter '24hr' for continuous monitoring.</small>
+    </div>
+    <div class="form-group">
+        {{ form.slack_user_ids.label(class="form-control-label") }}
+        {{ form.slack_user_ids(class="form-control") }}
+        <small class="form-text text-muted">Comma-separated Slack user IDs to notify. Leave empty if tagging @here.</small>
+    </div>
+    <div class="form-group form-check">
+        {{ form.tag_here(class="form-check-input") }}
+        {{ form.tag_here.label(class="form-check-label") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

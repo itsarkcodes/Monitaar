@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Flask specific
+instance/
+.webassets-cache
+migrations/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+
+# Byte-compiled / optimized files
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# Static files
+/static/
+
+# Misc
+.DS_Store
+Thumbs.db
